@@ -3,7 +3,6 @@ import { get } from 'request-promise';
 import {parseAlbumPage, parseProfile} from './parsers'
 
 const baseUrl = 'https://1001albumsgenerator.com'
-
 const albums = new Set(['/albums/1JXGJdo7Go4D2fipqXwt4q/swordfishtrombones'])
 const profiles = new Set()
 
@@ -31,7 +30,7 @@ const scrapeAlbums = async () => {
         console.log(`Found ${albums.size} albums, writing to file...`)
         writeFileSync('album-urls.json', JSON.stringify([...albums]));
 
-        console.log(`Found ${profiles.size} profiles, writing to profile-urls.json`)
+        console.log(`Found ${profiles.size} profiles, writing to profiles.json`)
         writeFileSync('profiles.json', JSON.stringify([...profiles]))
     }
 }
@@ -41,7 +40,7 @@ const mapAlbums = async () => {
     const albums = [];
     const failed = [];
 
-    for (const path of paths.slice(0, 10)) {
+    for (const path of paths) {
         try {
             const {shares, ...rest} = parseAlbumPage(await get(`${baseUrl}${path}`))
 
