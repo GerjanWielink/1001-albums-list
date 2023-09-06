@@ -1,0 +1,21 @@
+{
+  "name": "1001albums",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.5.9",
+    "@types/request": "^2.48.8",
+    "@types/request-promise": "^4.1.48",
+    "request": "^2.88.2",
+    "typescript": "^5.2.2"
+  },
+  "scripts": {
+    "start": "tsc && node build/index.js"
+  },
+  "dependencies": {
+    "@types/cheerio": "^0.22.32",
+    "cheerio": "^1.0.0-rc.12",
+    "request-promise": "^4.2.6"
+  }
+}
